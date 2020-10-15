@@ -1,0 +1,415 @@
+<html>
+<head>
+<title>hauntedhouse.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+hauntedhouse.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">random</span>
+
+<span class="s1">USER_LIFE_POINTS = </span><span class="s2">20</span>
+
+
+<span class="s0">def </span><span class="s1">enter_the_haunted_house():</span>
+    <span class="s1">print(</span><span class="s3">&quot;Welcome to the HAUNTED HOUSE!! Good Luck!&quot;</span><span class="s1">)</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;You see two doors, one to the left and one to the right. Which one do you choose? Choose Wisely!&quot;</span><span class="s1">)</span>
+    <span class="s0">while True</span><span class="s1">:</span>
+        <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;left&quot; </span><span class="s0">or </span><span class="s1">response == </span><span class="s3">&quot;right&quot;</span><span class="s1">:</span>
+            <span class="s0">break</span>
+        <span class="s0">else</span><span class="s1">:</span>
+            <span class="s1">print(</span><span class="s3">&quot;Enter a valid room!&quot;</span><span class="s1">)</span>
+            <span class="s1">response = input(</span><span class="s3">&quot;You see two doors, one to the left and one to the right.</span><span class="s0">\ 
+            </span><span class="s3">Which one do you choose? Choose Wisely!&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;left&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_left_room()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;right&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_right_room()</span>
+
+
+<span class="s0">def </span><span class="s1">enter_left_room():</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;OH NO! Annabelle the haunted doll starts attacking you! You lose life points! Advance to room</span><span class="s0">\ 
+ </span><span class="s3">3 or 4?&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;3&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_3()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;4&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_4()</span>
+
+
+<span class="s0">def </span><span class="s1">enter_right_room():</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;You found a green mushroom from SUPER MARIO BROS! You gain life points! Advance to room 3 or 4?&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;3&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_3()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;4&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_4()</span>
+
+
+<span class="s0">def </span><span class="s1">annabelle_attacks():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;Annabelle attacks us!!!&quot;</span><span class="s1">)</span>
+    <span class="s1">annabelle_the_doll = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">1</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(annabelle_the_doll):</span>
+        <span class="s1">print(</span><span class="s3">&quot;Annabelle &quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s3">&quot;Attacked us!&quot;</span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS -= </span><span class="s2">1</span><span class="s0">, </span><span class="s2">1</span>
+    <span class="s1">print(</span><span class="s3">&quot;Life points have been reduced to &quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">you_pick_up_green_mushroom():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;You eat the green mushroom! You gain life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">eat_green_mushroom = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">3</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(eat_green_mushroom):</span>
+        <span class="s1">print(</span><span class="s3">&quot;Green mushroom &quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s3">&quot;Grants us!&quot;</span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS += </span><span class="s2">1</span>
+        <span class="s1">print(</span><span class="s3">&quot; Life points have been increased to &quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_3():</span>
+    <span class="s1">print(</span><span class="s3">&quot;AHH!! Edward scissorhands wants to give you a haircut! You lose life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;You see rooms 5 and 6! Which one will you choose?&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;5&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_5()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;6&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_6()</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_4():</span>
+    <span class="s1">print(</span><span class="s3">&quot;Hey look its Mike Wazowski! He makes you laugh you gain life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;you see rooms 5 and 6 which one will you choose?&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;5&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_5()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;6&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_6()</span>
+
+
+<span class="s0">def </span><span class="s1">edwards_haircut():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;The haircut looks awful and now you're bleeding&quot;</span><span class="s1">)</span>
+    <span class="s1">haircut_marks = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">5</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(haircut_marks):</span>
+        <span class="s1">print(</span><span class="s3">&quot;You received &quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s3">&quot;Cuts from a bad haircut!&quot;</span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS -= </span><span class="s2">1</span><span class="s0">, </span><span class="s2">5</span>
+        <span class="s1">print(</span><span class="s3">&quot; Life points have been reduced to &quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">mike_wazowski():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;Mike makes you laugh with a dad joke&quot;</span><span class="s1">)</span>
+    <span class="s1">dad_joke = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">3</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(dad_joke):</span>
+        <span class="s1">print(</span><span class="s3">&quot; &quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s3">&quot;Of dad jokes increased our life points!&quot;</span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS += </span><span class="s2">1</span><span class="s0">, </span><span class="s2">3</span>
+        <span class="s1">print(</span><span class="s3">&quot;Life points have been increased to &quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_5():</span>
+    <span class="s1">print(</span><span class="s3">&quot;Sweet! Scooby Doo offered you a SCOOBY SNACK! You gain life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;You see rooms 7 &amp; 8! Which one do you choose?&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;7&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_7()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;8&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_8()</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_6():</span>
+    <span class="s1">print(</span><span class="s3">&quot;OH NO! The Adams family sits us for disgusting dinner! You lose life points&quot;</span><span class="s1">)</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;You see rooms 7 &amp; 8! Which one do you choose&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;7&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_7()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;8&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_8()</span>
+
+
+<span class="s0">def </span><span class="s1">scooby_doo():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;You ate some SCOOBY SNACKS and gained life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">scooby_snacks = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">3</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(scooby_snacks):</span>
+        <span class="s1">print(</span><span class="s3">&quot;Scooby Doo gave us &quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s3">&quot;Scooby Snacks that increased our life points!&quot;</span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS += </span><span class="s2">1</span><span class="s0">, </span><span class="s2">3</span>
+        <span class="s1">print(</span><span class="s3">&quot;Life points have been increased to &quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">adams_family_dinner():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;Dinner was disgusting! You lose life points.&quot;</span><span class="s1">)</span>
+    <span class="s1">disgusting_dinner = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">5</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(disgusting_dinner):</span>
+        <span class="s1">print(</span><span class="s3">&quot;The adams family fed us &quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s3">&quot;number of poisoned plates&quot;</span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS -= </span><span class="s2">1</span><span class="s0">, </span><span class="s2">5</span>
+        <span class="s1">print(</span><span class="s3">&quot;Life points have been reduced to &quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_7():</span>
+    <span class="s1">print(</span><span class="s3">&quot;WHAT THE?? IT the clown is looking for his red balloon! He attacks you for not helping him find it! You lose</span><span class="s0">\ 
+</span><span class="s3">life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;You see rooms 9 &amp; 10. Which one do you choose?&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;9&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_9()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;10&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_10()</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_8():</span>
+    <span class="s1">print(</span><span class="s3">&quot;Thank God! It's Casper the friendly ghost! Casper comforts you and encourages you to get through the rest of</span><span class="s0">\ 
+</span><span class="s3">the haunted house!&quot;</span><span class="s1">)</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;You see rooms 9 &amp; 10. Which one do you choose?&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;9&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_9()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;10&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_10()</span>
+
+
+<span class="s0">def </span><span class="s1">it_the_clown():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;IT the clown attacks you for not finding his balloon! You lose life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">it_attacks = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">5</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(it_attacks):</span>
+        <span class="s1">print(</span><span class="s3">&quot;IT hits you &quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s3">&quot;times&quot;</span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS -= </span><span class="s2">1</span><span class="s0">, </span><span class="s2">5</span>
+        <span class="s1">print(</span><span class="s3">&quot;Life points have been reduced to &quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">casper_the_ghost():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;Casper the ghost comforts you! You gain life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">casper_comforts_you = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">3</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(casper_comforts_you):</span>
+        <span class="s1">print(</span><span class="s3">&quot;Casper gives you &quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s3">&quot;hugs!&quot;</span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS += </span><span class="s2">1</span><span class="s0">, </span><span class="s2">3</span>
+        <span class="s1">print(</span><span class="s3">&quot;Life points have been increased to &quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_9():</span>
+    <span class="s1">print(</span><span class="s3">&quot;LOOK! It's a mini potion from Fortnite! You pick it up and drink it to gain life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;You see rooms 11 &amp; 12. Which one do you choose?&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;11&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_11()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;12&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_12()</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_10():</span>
+    <span class="s1">print(</span><span class="s3">&quot;YIKES! Its Medusa! She turns some of your body into stone! You lose life points&quot;</span><span class="s1">)</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;You see rooms 11 &amp; 12. Which one do you choose?&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;11&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_11()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;12&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_12()</span>
+
+
+<span class="s0">def </span><span class="s1">mini_potion_fortnite():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;You drank a mini potion! You gain life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">mini_potion = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">3</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(mini_potion):</span>
+        <span class="s1">print(</span><span class="s3">&quot;Mini potion grants you &quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s3">&quot;life points&quot;</span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS += </span><span class="s2">1</span><span class="s0">, </span><span class="s2">3</span>
+        <span class="s1">print(</span><span class="s3">&quot;Life points have been increased to &quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">medusa_snake_lady():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;Some of your body turned to stone! You lose life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">medusa_head = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">5</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(medusa_head):</span>
+        <span class="s1">print(</span><span class="s3">&quot;Medusa head turns &quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s3">&quot;pieces of your body into stone&quot;</span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS -= </span><span class="s2">1</span><span class="s0">, </span><span class="s2">5</span>
+        <span class="s1">print(</span><span class="s3">&quot;Life points have been reduced to &quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_11():</span>
+    <span class="s1">print(</span><span class="s3">&quot;Hey look! It's a proton pack from Ghost Busters! You gain life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;You see rooms 13 &amp; 14. Which one do you choose?&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;13&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_13()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;14&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_14()</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_12():</span>
+    <span class="s1">print(</span><span class="s3">&quot;What?! A wicked witch put a curse on you! You lose life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;You see rooms 13 &amp; 14. Which one do you choose?&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;13&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_13()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;14&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_14()</span>
+
+
+<span class="s0">def </span><span class="s1">ghost_busters():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;You found a proton pack! You gain life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">proton_pack = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">3</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(proton_pack):</span>
+        <span class="s1">print(</span><span class="s3">&quot;Proton Pack grants you &quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s3">&quot;life points&quot;</span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS += </span><span class="s2">1</span><span class="s0">, </span><span class="s2">3</span>
+        <span class="s1">print(</span><span class="s3">&quot;Life points have been increased to &quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">wicked_witch():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;The wicked witch put a curse on you! You lose life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">crazy_witch = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">5</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(crazy_witch):</span>
+        <span class="s1">print(</span><span class="s3">&quot;The wicked witch has cursed &quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s3">&quot;of your body parts!&quot;</span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS -= </span><span class="s2">1</span><span class="s0">, </span><span class="s2">5</span>
+        <span class="s1">print(</span><span class="s3">&quot;Life points have been reduced to &quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_13():</span>
+    <span class="s1">print(</span><span class="s3">&quot;HOLY!! The mummy escaped his sarcophagus and is trying to steal your body! You lose life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;You see rooms 15 &amp; 16. Which one do you choose?&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;15&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_15()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;16&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_16()</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_14():</span>
+    <span class="s1">print(</span><span class="s3">&quot;Finally! A friendly minion gives you a flower! You gain life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;You see rooms 15 &amp; 16. Which one do you choose?&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;15&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_15()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;16&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_16()</span>
+
+
+<span class="s0">def </span><span class="s1">the_mummy():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;The mummy tried to eat some of your body parts! You lose life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">scary_mummy = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">5</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(scary_mummy):</span>
+        <span class="s1">print(</span><span class="s3">&quot;The mummy ate &quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s3">&quot;parts of your body!&quot;</span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS -= </span><span class="s2">1</span><span class="s0">, </span><span class="s2">5</span>
+        <span class="s1">print(</span><span class="s3">&quot;Life points have been reduced to &quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">friendly_minion():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;The Minion gave us some flower(s) to keep us sane! You gain life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">the_minion = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">3</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(the_minion):</span>
+        <span class="s1">print(</span><span class="s3">&quot;The minion gave us &quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s3">&quot;flower(s)!&quot;</span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS += </span><span class="s2">1</span><span class="s0">, </span><span class="s2">3</span>
+        <span class="s1">print(</span><span class="s3">&quot;Life points have been increased to&quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_15():</span>
+    <span class="s1">print(</span><span class="s3">&quot;SWEET!! You found a heart from the Legend of Zelda! You gain life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;You see rooms 17 and 18 which one will you choose?&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;17&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_17()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;18&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_18()</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_16():</span>
+    <span class="s1">print(</span><span class="s3">&quot;The human centipede doctor wants you for his next project! You lose life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;you see rooms 17 and 18 which will you choose?&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;17&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_17()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;18&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_18()</span>
+
+
+<span class="s0">def </span><span class="s1">healing_heart():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;You grab the heart and it restores your life points&quot;</span><span class="s1">)</span>
+    <span class="s1">heart = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">5</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(heart):</span>
+        <span class="s1">print(</span><span class="s3">&quot;The heart&quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s3">&quot;heals you&quot;</span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS += </span><span class="s2">1</span>
+        <span class="s1">print(</span><span class="s3">&quot;Life points have been increased to &quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">centipede_doctor():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;centipede doctor wants to use you in his next project&quot;</span><span class="s1">)</span>
+    <span class="s1">doctor = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">5</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(doctor):</span>
+        <span class="s1">print(</span><span class="s3">&quot;The doctor&quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS -= </span><span class="s2">1</span>
+        <span class="s1">print(</span><span class="s3">&quot;Life points have been reduced to &quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_17():</span>
+    <span class="s1">print(</span><span class="s3">&quot;OULALA! A handsome/beautiful vampire sees you and falls in love! You gain life points!&quot;</span><span class="s1">)</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;you see rooms 19 and 20 which will you choose?&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;19&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_19()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;20&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_20()</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_18():</span>
+    <span class="s1">print(</span><span class="s3">&quot;Jason Voorhees mother offers you a pamphlet to camp crystal lake! You lose points!&quot;</span><span class="s1">)</span>
+    <span class="s1">response = input(</span><span class="s3">&quot;you see rooms 19 and 20 which will you choose?&quot;</span><span class="s1">)</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;19&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_19()</span>
+    <span class="s0">if </span><span class="s1">response == </span><span class="s3">&quot;20&quot;</span><span class="s1">:</span>
+        <span class="s1">enter_room_20()</span>
+
+
+<span class="s0">def </span><span class="s1">beautiful_handsome_vampire():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;vampire falls in love with you and kisses your cheek&quot;</span><span class="s1">)</span>
+    <span class="s1">kiss = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">5</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(kiss):</span>
+        <span class="s1">print(</span><span class="s3">&quot;kisses&quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s3">&quot;your cheek&quot;</span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS += </span><span class="s2">1</span>
+        <span class="s1">print(</span><span class="s3">&quot;Life points have been increased to &quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">camp_pamphlet():</span>
+    <span class="s0">global </span><span class="s1">USER_LIFE_POINTS</span>
+    <span class="s1">print(</span><span class="s3">&quot;this place does not look safe&quot;</span><span class="s1">)</span>
+    <span class="s1">pamphlet = random.randint(</span><span class="s2">1</span><span class="s0">, </span><span class="s2">5</span><span class="s1">)</span>
+    <span class="s0">for </span><span class="s1">i </span><span class="s0">in </span><span class="s1">range(pamphlet):</span>
+        <span class="s1">print(</span><span class="s3">&quot;pamphlet&quot;</span><span class="s0">, </span><span class="s1">i</span><span class="s0">, </span><span class="s3">&quot;touches your hand&quot;</span><span class="s1">)</span>
+        <span class="s1">USER_LIFE_POINTS -= </span><span class="s2">1</span>
+        <span class="s1">print(</span><span class="s3">&quot;Life points have been increased to &quot;</span><span class="s0">, </span><span class="s1">USER_LIFE_POINTS)</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_19():</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s1">print(</span><span class="s3">&quot;you escaped the haunted house you win!!&quot;</span><span class="s1">)</span>
+
+
+<span class="s0">def </span><span class="s1">enter_room_20():</span>
+    <span class="s1">print(USER_LIFE_POINTS)</span>
+    <span class="s1">print(</span><span class="s3">&quot;you escaped the haunted house you win!!&quot;</span><span class="s1">)</span>
+
+
+<span class="s0">def </span><span class="s1">run():</span>
+    <span class="s1">enter_the_haunted_house()</span>
+</pre>
+</body>
+</html>
